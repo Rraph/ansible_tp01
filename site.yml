@@ -1,0 +1,20 @@
+# - name: common things
+#   hosts: all
+#   remote_user: User01
+#   become: true
+#   roles: 
+#     - common
+
+- name: install and start mysql
+  hosts: mysql
+  remote_user: User01
+  become: true
+  roles: 
+    - mysql
+
+- name: install and start apache, php, ftp (vsftpd)
+  hosts: web
+  remote_user: User01
+  become: true
+  roles:
+    - web  

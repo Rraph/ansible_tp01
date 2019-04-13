@@ -1,0 +1,44 @@
+##### WORDPRESS #####
+
+- apache2_module:
+    state: present
+    name: rewrite
+
+- name: Create wordpress directory
+  file: 
+    path=/var/www/wordpress
+    state=directory
+
+- name: Use local template for virtualhost on webserver
+  template:
+    src=vhost.conf.j2
+    dest=/etc/apache2/sites-available/{{item.servername}}.conf
+  with_items:
+    - "{{apache_vhosts}}"
+  notify:
+    - reload apache
+
+- name: Remove default apache virtualhost
+  file:
+    path=/etc/apache2/sites-enabled/000-default.conf
+    state=absent
+  notify:
+    - reload apache
+
+- name: Enable virtualhosts
+  file:
+    src=/etc/apache2/sites-available/{{item.servername}}.conf
+    dest=/etc/apache2/sites-enabled/{{item.servername}}.conf
+    state=link
+  with_items:
+    - "{{apache_vhosts}}"
+  notify:
+    - reload apache
+
+- name: Add servernames in hosts
+  lineinfile:
+    dest: /etc/hosts
+    state: present
+    line: "127.0.0.1 {{item.servername}}"
+  with_items:
+    - "{{apache_vhosts}}"

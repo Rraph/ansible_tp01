@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+    {% if item.servername is defined %}
+    ServerName {{ item.servername }}
+    {% endif %}
+
+    ServerAdmin webmaster@localhost
+    DocumentRoot {{ item.document_root }}
+
+    <Directory {{ item.document_root }}/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>

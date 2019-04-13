@@ -1,0 +1,16 @@
+##### FTP SERVER #####
+
+- name: install and start ftp 
+  apt:
+    name: vsftpd
+    update-cache: yes
+
+- name: starting vsftpd  
+  service: 
+    name: vsftpd
+    state: started
+
+- name: enable vsftpd
+  service:
+    name: vsftpd
+    enabled: yes

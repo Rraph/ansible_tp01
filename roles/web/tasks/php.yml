@@ -1,0 +1,6 @@
+##### PHP #####
+
+- name: install and start php
+  apt:
+    name: php7.2
+    update-cache: yes

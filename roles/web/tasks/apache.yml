@@ -1,0 +1,15 @@
+##### APACHE #####
+- name: install and start apache
+  apt:
+    name: apache2
+    update-cache: yes
+    
+- name: starting apache  
+  service: 
+    name: apache2
+    state: started
+
+- name: enable apache
+  service:
+    name: apache2
+    enabled: yes
