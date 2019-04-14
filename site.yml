@@ -5,6 +5,7 @@
 #   roles: 
 #     - common
 
+tasks:
 - name: install and start mysql
   hosts: mysql
   remote_user: User01
@@ -18,3 +19,9 @@
   become: true
   roles:
     - web  
+
+handlers:
+- name: reload apache
+    service:
+    name: apache2
+    state: restarted
