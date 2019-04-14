@@ -42,3 +42,13 @@
     line: "127.0.0.1 {{item.servername}}"
   with_items:
     - "{{apache_vhosts}}"
+
+- name: get wordpress from https link 
+  get_url:
+    url: https://fr.wordpress.org/wordpress-latest-fr_FR.zip
+    dest: /home/Documents
+
+- name: Unarchive wordpress that is already on the remote machine
+  unarchive:
+    src: /home/Documents/wordpress-latest-fr_FR.zip
+    dest: /var/www/wordpress

@@ -20,8 +20,11 @@
   when: ansible_os_family == 'Debian'
 
 - mysql_user:
-    name: Wordpress_01
+    name: Wordpress
     password: root
-    priv: '*.*:ALL'
+    priv: '*.*:ALL,GRANT'
     state: present
-    
+
+- mysql_db:
+    name: wordpress
+    state: present
