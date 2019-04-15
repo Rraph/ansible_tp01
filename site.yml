@@ -1,9 +1,9 @@
-# - name: common things
-#   hosts: all
-#   remote_user: User01
-#   become: true
-#   roles: 
-#     - common
+- name: common things
+  hosts: all
+  remote_user: User01
+  become: true
+  roles: 
+    - common
 
 - name: install and start mysql
   hosts: mysql
