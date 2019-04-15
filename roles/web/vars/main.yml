@@ -1,2 +1,2 @@
 apache_vhosts:
-  - {servername: wordpress, document_root: /var/www/worpdress}
+  - {servername: wordpress, document_root: /var/www/wordpress}
