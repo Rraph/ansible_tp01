@@ -1,8 +1,6 @@
-##### WORDPRESS #####
-
 - apache2_module:
-    state: present
-    name: rewrite
+   state: present
+   name: rewrite
 
 - name: Use local template for virtualhost on webserver
   template:
@@ -60,6 +58,7 @@
 
 - name: "config wp-config.php"
   template:
-    src: ./templates/test
-    dest: /var/www/html/wordpress/wp-config.php
+    src: ../templates/conf_wp
+    dest: /var/www/wordpress/wp-config.php
   become: true
+
