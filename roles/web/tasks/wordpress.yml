@@ -47,3 +47,19 @@
 - lineinfile:
     path: /etc/hosts
     line: '127.0.0.1 wordpress'
+
+- name: "check sample db"
+  stat: 
+    path: "/var/www/wordpress/wp-config-sample.php"
+  register: check_sample
+
+- name: "rename sample"
+  command: mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
+  when: check_sample.stat.exists == True
+  become: true
+
+- name: "config wp-config.php"
+  template:
+    src: ./templates/wp.conf.j2
+    dest: /var/www/wordpress/wp-config.php
+  become: true
