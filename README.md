@@ -6,7 +6,7 @@
 # 1 Les specs :
 
 ## 1.1 Les machines : 
-     - une machine de contrôle de votre choix : pour ce tp une vm ubuntu A JOUR est utilisée.
+     - une machine de contrôle de votre choix avec ansible d'installé : pour ce tp une vm ubuntu A JOUR est utilisée.
      - deux machines sur lesquelles seront automatisées l'installation et la configuration des différents services.
         - DevOps1 (machine n°1) : mysql + création de la base de données
         - DevOps2 (machine n°2) : apache 2, php7.2, ftp, wordpress
