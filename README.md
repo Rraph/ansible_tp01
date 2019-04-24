@@ -5,4 +5,7 @@
 
 # 1 . Les specs:
 
-## 1.1
+## 1.1 Les machines : 
+     - une machine de contrôle de votre choix : pour ce tp une vm ubuntu A JOUR est utilisée
+     - deux machines sur lesquels seront automatisés l'installation et la configuration des différents services.
+        - bite
