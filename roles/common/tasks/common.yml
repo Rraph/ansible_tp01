@@ -1,0 +1,10 @@
+- name: install unzip
+  apt:
+    name: unzip
+    update-cache: yes
+
+- name: install php-mysql
+  apt: 
+    name: php7.2-mysql
+    update-cache: yes
+    
